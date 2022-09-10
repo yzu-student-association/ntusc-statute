@@ -1,17 +1,19 @@
-國立臺灣大學學生會簡明法規彙編
+元智大學學生會簡明法規彙編
 ==============================
 
-產生方便閱讀版本的[國立臺灣大學學生會法規彙編](https://github.com/ntu-student-congress/tortue)。
+本專案改自臺大開源社的[國立臺灣大學學生會簡明法規彙編](https://github.com/rschiang/ntusc-statute)，主要專注在將元智大學學生法規彙編解析為網頁輸出。
 
-這支程式能夠解析純文字格式的法規與學生法院解釋，轉換成文件物件模型 (DOM) 後，再以不同的格式輸出。
+產生方便閱讀版本的[元智大學學生會法規彙編](https://github.com/yzu-student-association/tortue)。
+
+這支程式能夠解析純文字格式的法規，轉換成文件物件模型 (DOM) 後，再以不同的格式輸出。
 支援的格式除了 Markdown 以外，也能藉由 [CSS3 分頁媒體模組](https://www.w3.org/TR/css3-page/)
 產生即可列印 (print-ready) 的 HTML 文件。
 
 ---
 
-Generates an easier-reading version of [Code of NTU Student Association](https://github.com/ntu-student-congress/tortue).
+Generates an easier-reading version of [Code of YZU Student Association](https://github.com/yzu-student-association/tortue).
 
-This application parses acts and Student Judiciary interpretations in plain-text
+This application parses acts in plain-text
 format, converts them into Document Object Model, and renders them in different
 formats respectively. Apart from Markdown, print-ready HTML documents are also
 supported through the [CSS3 Paged Media Module](https://www.w3.org/TR/css3-page/) technique.

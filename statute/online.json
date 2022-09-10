@@ -1,12 +1,11 @@
 {
-    "title": "國立臺灣大學學生會簡明法規彙編",
+    "title": "元智大學學生會簡明法規彙編",
     "meta": {
-        "author": "國立臺灣大學開源社",
-        "description": "收錄國立臺灣大學學生會自治規程、學生法院解釋，以及相關之校級與國家法規。",
-        "og:type": "website",
-        "og:image": "https://poren.tw/ntusc-statute/assets/social-cover.png"
+        "author": "元智大學學生會",
+        "description": "收錄元智大學學生會自治規程，以及相關之校級與國家法規。",
+        "og:type": "website"
     },
-    "base_url": "https://poren.tw/ntusc-statute/",
+    "base_url": "/",
     "source": "source/laws/",
     "output": "docs/",
     "generator": "online",
@@ -15,37 +14,25 @@
             "slug": "supreme",
             "caption": "基本法與綜合性法規",
             "label": "基本法",
-            "folders": ["1_基本法", "2_綜合性法規"]
+            "folders": ["1_組織章程", "2_一般法規"]
+        },
+        {
+            "slug": "organize",
+            "caption": "組織法規",
+            "label": "組織",
+            "folders": ["3_組織法規"]
         },
         {
             "slug": "admin",
-            "caption": "行政部門",
+            "caption": "行政規則",
             "label": "行政",
-            "folders": ["3_會長暨行政部門篇"]
-        },
-        {
-            "slug": "legis",
-            "caption": "立法部門",
-            "label": "立法",
-            "folders": ["4_立法部門篇"]
-        },
-        {
-            "slug": "judicial",
-            "caption": "司法部門",
-            "label": "司法",
-            "folders": ["5_司法部門篇"]
-        },
-        {
-            "slug": "interpret",
-            "caption": "學生法院解釋",
-            "label": "解釋",
-            "folders": ["6_學生法院解釋"]
+            "folders": ["5_行政規則"]
         },
         {
             "slug": "appendix",
             "caption": "附錄",
             "label": "附錄",
-            "folders": ["../../statute/online/appendix"]
+            "folders": ["7_附錄"]
         }
     ],
     "prepend": [
@@ -62,15 +49,9 @@
         },
         "entry_meta": {
             "og:type": "article",
-            "og:site_name": "國立臺灣大學學生會簡明法規彙編",
-            "author": "國立臺灣大學開源社",
-            "description": "《簡明法規彙編》收錄自治規程、規則條文、以及相關之公眾法規，並提供紙本與線上版本。",
-            "og:image": "https://poren.tw/ntusc-statute/assets/social-cover.png"
-        },
-        "version_ref": {
-            "statute": ".git/modules/source/HEAD",
-            "build": ".git/HEAD",
-            "output": "docs/version.json"
+            "og:site_name": "元智大學學生會簡明法規彙編",
+            "author": "元智大學學生會",
+            "description": "《簡明法規彙編》收錄自治規程、規則條文、以及相關之公眾法規。"
         }
     }
 }
