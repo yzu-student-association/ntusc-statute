@@ -1,0 +1,346 @@
+@page {
+  size: 99mm 210mm;
+  padding: 0.5em;
+  counter-increment: page;
+  font-family: "Source Han Serif TW", "Source Han Serif TC", serif;
+  font-size: 8pt;
+  border: 1pt solid black;
+}
+
+@page :left {
+  margin: 1.375em 3em 1.375em 2.5em;
+  @left-top {
+    writing-mode: vertical-rl;
+    margin: 0 .575em 0 .925em;
+  }
+  @left-bottom {
+    writing-mode: vertical-rl;
+    content: counter(page, cjk-decimal);
+    margin: 0 .575em 0.25em .925em;
+  }
+}
+
+@page :right {
+  margin: 1.375em 2.5em 1.375em 3em;
+  @right-top {
+    writing-mode: vertical-lr;
+    margin: 0 .925em 0 .575em;
+  }
+  @right-bottom {
+    writing-mode: vertical-lr;
+    content: counter(page, cjk-decimal);
+    margin: 0 .925em 0.25em .575em;
+  }
+}
+
+@page index:left {
+  @left-top {
+    content: '\76ee\9304';
+  }
+}
+
+@page index:right {
+  @right-top {
+    content: '\76ee\9304';
+  }
+}
+
+@page index:left:blank {
+  border: none;
+  @left-top {
+    content: '';
+  }
+}
+
+@page foreword:left:blank {
+  border: none;
+  @left-bottom {
+    content: '';
+  }
+}
+
+@page category {
+  margin: 8.5mm; /* = 24pt (<section> 1em) */
+  border: none;
+  @left-bottom {
+    content: '';
+  }
+  @right-bottom {
+    content: '';
+  }
+}
+
+@page statute:left {
+  @left-top {
+    content: string(statute-title) string(statute-prefix, last) string(statute-now, first) string(statute-unit, last) string(statute-now, last) string(statute-suffix, last);
+  }
+}
+
+@page statute:left:blank {
+  @left-top {
+    content: '\8cc7\6599\88dc\5145\6b04';
+  }
+}
+
+@page statute:right {
+  @right-top {
+    content: string(statute-title) string(statute-prefix, last) string(statute-now, first) string(statute-unit, last) string(statute-now, last) string(statute-suffix, last);
+  }
+}
+
+@page interpretation:left {
+  @left-top {
+    content: '\5b78\751f\6cd5\9662\89e3\91cb\6587';
+  }
+}
+
+@page interpretation:left:blank {
+  @left-top {
+    content: '\8cc7\6599\88dc\5145\6b04';
+  }
+}
+
+@page interpretation:right {
+  @right-top {
+    content: '\5b78\751f\6cd5\9662\89e3\91cb\6587';
+  }
+}
+
+@page blank:left {
+  @left-top {
+    content: '\8cc7\6599\88dc\5145\6b04';
+  }
+}
+
+@page blank:right {
+  @right-top {
+    content: '\8cc7\6599\88dc\5145\6b04';
+  }
+}
+
+@page others {
+  border: none;
+  padding: 0;
+  @left-bottom {
+    content: '';
+  }
+  @right-bottom {
+    content: '';
+  }
+}
+
+body {
+  padding: 0;
+}
+
+nav {
+  page: index;
+  counter-reset: page 1;
+  page-break-before: right;
+  page-break-after: always;
+}
+
+.indices a::after {
+  content: leader('.') target-counter(attr(href url), page, decimal);
+}
+
+section {
+  page: category;
+  string-set: category-title attr(data-category-label);
+  page-break-before: right;
+  page-break-after: always;
+  bookmark-level: 1;
+  margin: 10.5em auto;
+  vertical-align: middle;
+}
+
+#intro {
+  writing-mode: vertical-lr;
+  margin: 11rem 13.25rem;
+  line-height: 1em;
+  text-align: center;
+  bookmark-level: none;
+}
+
+article {
+  page: statute;
+  page-break-before: always;
+  page-break-after: always;
+}
+
+article.interpretation {
+  page: interpretation;
+}
+
+header {
+  string-set: statute-title content(), statute-prefix '', statute-unit '', statute-suffix '';
+  margin-left: -.05em;
+  margin-right: -.05em;
+  bookmark-level: 2;
+}
+
+/* === Page-specific treatments === */
+
+/* Keep bracket from breaking */
+#supreme_5ae5bf {
+  word-break: keep-all;
+}
+
+#supreme_67334d,
+#admin_be0134,
+#admin_ee0711 {
+  margin-left: -.1em;
+  margin-right: -.1em;
+  text-align: justify;
+}
+
+#admin_2bc3ea ~ .history,
+#appendix_fcc513 ~ .history,
+#appendix_209221 ~ .history,
+#appendix_67854a ~ .history {
+  string-set: statute-now ''; /* Witchcraft to clear lingering number from previous act */
+  margin-left: 2em; /* Decrease margin to accomodate more text */
+}
+
+/* HACK: keep orphan words on previous line */
+#supreme_5ae5bf ~ h6[data-number="二十四"] + ol,
+#supreme_5ae5bf ~ h6[data-number="三十一"] + ol,
+#admin_be0134 ~ h6[data-number="六"] + ol {
+  margin-left: .9em;
+  margin-right: -1em;
+}
+
+/* Special treatment to lingering paragraph */
+#supreme_ec3907 ~ h6[data-number="三十六"] {
+  margin-bottom: 0;
+}
+
+/* Special treatment to outro */
+#supreme_85cbef ~ ol.paragraphs + p {
+  margin-top: .265rem;
+}
+
+/* Force line wrap for adjacent punctuations */
+#interpret_3c64f6 ~ p:first-of-type {
+  word-break: break-word;
+}
+
+/* Adjust line wrap for mixed paragraph */
+#interpret_ada762 ~ p:nth-of-type(7) > .jargon,
+#interpret_55ce5d ~ h6:nth-of-type(2) + p .jargon:first-of-type {
+  letter-spacing: -.01em;
+}
+
+#interpret_55ce5d ~ p:not(.footnote) + p {
+  margin-right: -.1em;
+}
+
+/* Quote indentation */
+#interpret_6719c4 ~ p:last-child {
+  margin-left: 1em;
+  text-indent: 0;
+}
+
+#interpret_05ec9f ~ h5 + h6 + p {
+  margin-left: 1em;
+  text-indent: 0;
+}
+
+/* Chapter title too long; pad it */
+#appendix_fcc513_ch06 {
+  margin-left: 7.5em;
+  margin-right: 3.5em;
+  text-indent: -4em;
+  text-align: left;
+}
+
+/* ================================ */
+
+h2, h3, h4, h5, h6 {
+  page-break-after: auto;
+}
+
+.act h6 {
+  string-set: statute-now attr(data-number), statute-prefix '\fe35', statute-unit '\ff5e', statute-suffix '\689d\fe36';
+}
+
+.act h6[data-appendix] {
+  string-set: statute-now attr(data-number), statute-prefix '\fe35', statute-unit '\ff5e', statute-suffix '\fe36';
+}
+
+.act h6[data-appendix-table] {
+  string-set: statute-now '', statute-prefix '\fe35', statute-unit '', statute-suffix attr(data-number) '\fe36';
+}
+
+.act h6[data-appendix-table]:not(.mini) {
+  page-break-before: always;
+  margin-top: 0;
+  margin-bottom: .25rem;
+}
+
+h6 .note {
+  word-break: keep-all;
+}
+
+article th, article td {
+  border: .4pt solid;
+}
+
+td li.lingering {
+  margin-right: -.5em;
+}
+
+td li.lingering .squared.icon:first-of-type,
+td li.lingering .squared.icon.first {
+  margin-left: .14em;
+}
+
+#editorial_notes {
+  page: foreword;
+}
+
+#editorial_notes p {
+  padding: .6875rem 0;
+}
+
+#editorial_notes p + ol li,
+#editorial_notes h4 {
+  padding-bottom: .6875rem;
+}
+
+#editorial_notes h4 + ol li {
+  padding-bottom: .275rem;
+}
+
+.blank {
+  page: blank;
+  page-break-before: right;
+  page-break-after: always;
+}
+
+#copyright {
+  page: others;
+  page-break-before: left;
+  page-break-after: always;
+}
+
+.book.title .secondary {
+  font-size: .6667em;
+}
+
+#copyright td[colspan="2"] {
+  padding-right: 1em;
+}
+
+#cip {
+  padding: 7.5rem 0 2.5rem;
+}
+
+/* Online-specific settings */
+
+
+body > hgroup.book.title,
+body > footer,
+.github-corner {
+  display: none;
+}

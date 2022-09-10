@@ -1,0 +1,191 @@
+html, body {
+    font-size: 14pt;
+    margin: 0;
+    padding: 0;
+}
+
+hgroup.book.title, footer {
+    margin: 0;
+    padding: 1.325rem 1rem;
+    text-align: center;
+}
+
+nav, article, #readme {
+    max-width: 35em;
+    margin: auto;
+    padding: 1rem .675rem;
+}
+
+#copyright {
+  max-width: 30em;
+  margin: auto;
+}
+
+article + article {
+    margin-top: .5rem;
+}
+
+h6[data-appendix-table] {
+    margin-top: .875rem;
+}
+
+a:hover {
+    color: #61a4b3;
+}
+
+nav a, #readme a {
+    border-bottom: 1px dotted rgba(0, 0, 0, 0);
+}
+
+nav a:hover, #readme a:hover {
+    border-bottom-color: #61a4b3;
+}
+
+img {
+    max-width: 100%;
+}
+
+.squared.icon {
+  padding: .05em .1em;
+  position: relative;
+  top: -.05em;
+}
+
+#intro {
+    position: relative;
+    margin: 0;
+    padding: 15% .67em 15% 1em; /* Cancel out letter spacing */
+    font-size: 2em;
+    font-weight: 500;
+    background: #313546 url(../assets/library.jpg) center / cover;
+    color: white;
+    text-shadow: 0 0 8px rgba(114, 179, 192, .87);
+    letter-spacing: .33em;
+    text-align: center;
+}
+
+#intro::after {
+    display: block;
+    position: absolute;
+    right: 1em;
+    bottom: 1em;
+    font-size: .625rem;
+    font-weight: normal;
+    opacity: .28;
+    text-shadow: none;
+    letter-spacing: normal;
+    text-align: right;
+}
+
+nav header::before {
+    content: '法規彙編';
+}
+
+hgroup.gray.book.title, footer {
+    background: #fafafa;
+}
+
+.gray.book.title span {
+    display: block;
+}
+
+.gray.book.title a {
+    display: block;
+    width: 7em;
+    margin: auto;
+    transition: color 280ms ease;
+    color: rgba(0, 0, 0, .54);
+    border: none;
+}
+
+.gray.book.title a:hover {
+    color: rgba(0, 0, 0, .87);
+    border: none;
+}
+
+.ntuosc-logo {
+    transition: filter 280ms ease;
+    filter: grayscale(100%);
+}
+
+.ntuosc-logo:hover {
+    filter: grayscale(0%);
+}
+
+#version-info {
+    bottom: 0;
+    color: #757575;
+    font-family: Roboto, system-ui, "PingFang TC", sans-serif;
+    font-size: .75em;
+    height: 1.325rem;
+    width: 100%;
+}
+
+#version-info .commit {
+    background: #e0f7fa;
+    border-radius: 4px;
+    color: #039be5;
+    font-family: "Roboto Mono", Consolas, Menlo, monospace;
+    padding: 0.2em 0.4em;
+}
+
+#readme figure {
+    float: left;
+    max-width: 7.25em;
+    margin: 0 .75em .5em 0;
+    padding: 4px;
+    border: 1px solid #eee;
+}
+
+#readme::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+#readme p {
+    text-indent: 1em;
+    margin: .5em 0 0;
+}
+
+#readme abbr {
+    text-decoration: none;
+}
+
+#readme abbr:hover {
+    background: #fafafa;
+}
+
+.page404 #readme {
+  min-height: calc(100vh - 12.9875em);
+}
+
+/* Mobile devices */
+@media screen and (max-width: 30em) {
+    .gray.book.title a {
+        width: auto;
+    }
+
+    nav, article {
+        padding: .5rem;
+    }
+}
+
+/* GitHub badge */
+.github-corner:hover .octo-arm {
+  animation: octocat-wave 560ms ease-in-out;
+}
+
+@keyframes octocat-wave {
+  0%, 100% { transform: rotate(0); }
+  20%, 60% { transform: rotate(-25deg); }
+  40%, 80% {transform:rotate(10deg); }
+}
+
+@media (max-width: 500px) {
+  .github-corner:hover .octo-arm { animation: none; }
+  .github-corner .octo-arm { animation:octocat-wave 560ms ease-in-out; }
+}
+
+/* Web font fallback for mobile devices, from Google Font Early Access */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;700&display=swap');
