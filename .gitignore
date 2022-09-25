@@ -2,3 +2,8 @@
 __pycache__/
 statute.html
 statute.pdf
+docs/*
+!docs/404.html
+!docs/assets/
+!docs/styles/
+!docs/CNAME

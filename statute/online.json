@@ -5,7 +5,7 @@
         "description": "收錄元智大學學生會自治規程，以及相關之校級與國家法規。",
         "og:type": "website"
     },
-    "base_url": "/statute/",
+    "base_url": "/",
     "source": "source/laws/",
     "output": "docs/",
     "generator": "online",
